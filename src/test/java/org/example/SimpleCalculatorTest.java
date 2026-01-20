@@ -14,23 +14,33 @@ class SimpleCalculatorTest {
         simpleCalculator = new SimpleCalculator();
     }
 
+    //Happy path
+
     @Test
-    void onePlusTwoEqualsThree(){
+    void add_whenTwoPositiveNumbers_thenReturnsSum(){
         assertEquals(3, simpleCalculator.add(1, 2));
     }
 
     @Test
-    void twoPlusThreeEqualsFive(){
-        assertEquals(5, simpleCalculator.add(2, 3));
+    void subtract_whenValidNumbers_thenReturnsDifference(){
+        assertEquals(1, simpleCalculator.subtract(3, 2));
     }
 
     @Test
-    void divide_tenDividedByTwo_returnsTwo(){
+    void divide_whenTwoValidNumbers_thenReturnsQuotient(){
         assertEquals(5, simpleCalculator.divide(10, 2));
     }
 
+    //Edge case
     @Test
-    void divide_twoDividedByZero_throwsIllegalArgumentException(){
+    void add_whenAddingByZero_returnsTheSameNumber(){
+        assertEquals(7, simpleCalculator.add(7, 0));
+    }
+
+
+    //Exception
+    @Test
+    void divide_whenDividingByZero_throwsException(){
         assertThrows(IllegalArgumentException.class, () -> {
             simpleCalculator.divide(2, 0);
         });
