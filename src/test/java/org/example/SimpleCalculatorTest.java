@@ -23,4 +23,16 @@ class SimpleCalculatorTest {
     void twoPlusThreeEqualsFive(){
         assertEquals(5, simpleCalculator.add(2, 3));
     }
+
+    @Test
+    void divide_tenDividedByTwo_returnsTwo(){
+        assertEquals(5, simpleCalculator.divide(10, 2));
+    }
+
+    @Test
+    void divide_twoDividedByZero_throwsIllegalArgumentException(){
+        assertThrows(IllegalArgumentException.class, () -> {
+            simpleCalculator.divide(2, 0);
+        });
+    }
 }
