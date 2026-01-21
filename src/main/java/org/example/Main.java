@@ -1,7 +1,14 @@
 package org.example;
 
+import java.util.function.Predicate;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+
+        Predicate<Integer> isEven = n -> n % 2 == 0;
+        System.out.println(isEven.test(4));
+
+
+
     }
 }
